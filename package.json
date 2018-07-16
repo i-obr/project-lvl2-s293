@@ -1,0 +1,40 @@
+{
+  "name": "gen-diff",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "babel-node": "babel-node",
+    "eslint": "eslint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-obr/project-lvl2-s293.git"
+  },
+  "author": "Ivan Obraztcov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/i-obr/project-lvl2-s293/issues"
+  },
+  "homepage": "https://github.com/i-obr/project-lvl2-s293#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.12.2",
+    "flow-bin": "^0.66.0",
+    "flow-typed": "^2.3.0",
+    "jest": "^22.3.0",
+    "jest-cli": "^22.4.0"
+  }
+}
