@@ -3,11 +3,13 @@ import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
 import yaml from 'js-yaml';
+import ini from 'ini';
 
 const extActions = {
   '.json': JSON.parse,
   '.yml': yaml.safeLoad,
   '.yaml': yaml.safeLoad,
+  '.ini': ini.parse,
 };
 
 const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
