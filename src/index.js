@@ -1,12 +1,21 @@
 // @flow
 import fs from 'fs';
 import _ from 'lodash';
+import path from 'path';
+import yaml from 'js-yaml';
+
+const extActions = {
+  '.json': JSON.parse,
+  '.yml': yaml.safeLoad,
+  '.yaml': yaml.safeLoad,
+};
 
 const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
   const fileEntryBefore = fs.readFileSync(pathFileBefore, 'utf8');
   const fileEntryAfter = fs.readFileSync(pathFileAfter, 'utf8');
-  const parseBefore = JSON.parse(fileEntryBefore);
-  const parseAfter = JSON.parse(fileEntryAfter);
+  const ext = path.extname(pathFileBefore);
+  const parseBefore = extActions[ext](fileEntryBefore);
+  const parseAfter = extActions[ext](fileEntryAfter);
   const union = _.union(Object.keys(parseBefore), Object.keys(parseAfter));
 
   const result = union.map((key) => {
