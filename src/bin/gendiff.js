@@ -9,7 +9,7 @@ program
   .description('Compares two configuration files and shows a difference.')
   .option('-f, --format [type]', 'Output format')
   .action((firstArg, secondArg) => {
-    gendiff(firstArg, secondArg);
+    console.log(gendiff(firstArg, secondArg));
   });
 
 program.parse(process.argv);
