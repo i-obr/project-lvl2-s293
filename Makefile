@@ -11,11 +11,11 @@ build:
 	rm -rf dist
 	npm run build
 
-# test:
-# 	npm test
+test:
+	npm test
 
-# watch-test:
-# 	npm run test -- --watch
+watch-test:
+	npm run test -- --watch
 
 lint:
 	npm run eslint .
