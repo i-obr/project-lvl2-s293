@@ -5,8 +5,7 @@ test('gendiff:json', () => {
   const file2 = '__tests__/__fixtures__/json/after.json';
   const received = gendiff(file1, file2);
 
-  const expected =
-`{
+  const expected = `{
     host: hexlet.io
   + timeout: 20
   - timeout: 50

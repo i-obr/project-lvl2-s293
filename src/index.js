@@ -12,11 +12,16 @@ const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
   const result = union.map((key) => {
     if (!parseAfter[key]) {
       return `  - ${key}: ${parseBefore[key]}`;
-    } else if (!parseBefore[key]) {
+    }
+
+    if (!parseBefore[key]) {
       return `  + ${key}: ${parseAfter[key]}`;
-    } else if (parseBefore[key] !== parseAfter[key]) {
+    }
+
+    if (parseBefore[key] !== parseAfter[key]) {
       return `  + ${key}: ${parseAfter[key]}\n  - ${key}: ${parseBefore[key]}`;
     }
+
     return `   ${key}: ${parseBefore[key]}`;
   });
 
