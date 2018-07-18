@@ -2,7 +2,7 @@ import fs from 'fs';
 import gendiff from '../src';
 
 const pathMask = '__tests__/__fixtures__/';
-const expected = fs.readFileSync(`${pathMask}expected.txt`, 'utf8').trim();
+const expected = fs.readFileSync(`${pathMask}expected.txt`, 'utf8');
 
 test('gendiff:json', () => {
   const pathFile1 = `${pathMask}json/before.json`;
