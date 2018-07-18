@@ -20,12 +20,12 @@ const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
   const parseAfter = extActions[ext](fileEntryAfter);
   const union = _.union(Object.keys(parseBefore), Object.keys(parseAfter));
 
-  const result = union.map((key) => {
-    if (!parseAfter[key]) {
+  const diff = union.map((key) => {
+    if (!_.has(parseAfter, key)) {
       return `  - ${key}: ${parseBefore[key]}`;
     }
 
-    if (!parseBefore[key]) {
+    if (!_.has(parseBefore, key)) {
       return `  + ${key}: ${parseAfter[key]}`;
     }
 
@@ -36,7 +36,7 @@ const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
     return `   ${key}: ${parseBefore[key]}`;
   });
 
-  return `{\n ${result.join('\n')}\n}`;
+  return `{\n ${diff.join('\n')}\n}`;
 };
 
 export default gendiff;
