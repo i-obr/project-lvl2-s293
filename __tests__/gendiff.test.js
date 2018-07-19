@@ -26,4 +26,4 @@ describe('Compare flat file', () => {
     const received = gendiff(pathFile1, pathFile2);
     expect(received).toBe(expected);
   });
-})
+});
