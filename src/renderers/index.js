@@ -1,11 +1,13 @@
-import jsonFormat from './renderJson';
+import tapFormat from './renderTap';
 import plainFormat from './renderPlainText';
+import jsonFormat from './renderJson';
 
 const formatRender = {
-  json: jsonFormat,
+  tap: tapFormat,
   plain: plainFormat,
+  json: jsonFormat,
 };
 
-const render = (format = 'json') => formatRender[format];
+const render = (format = 'tap') => formatRender[format];
 
 export default data => render(data);
