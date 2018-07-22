@@ -3,16 +3,15 @@ import fs from 'fs';
 import path from 'path';
 import getParser from './parsers';
 import createDiff from './createDiff';
-import render from './render';
+import getRender from './renderers';
 
-const gendiff = (pathFileBefore: string, pathFileAfter: string) => {
+export default (pathFileBefore: string, pathFileAfter: string, format: string) => {
   const fileEntryBefore = fs.readFileSync(pathFileBefore, 'utf8');
   const fileEntryAfter = fs.readFileSync(pathFileAfter, 'utf8');
   const ext = path.extname(pathFileBefore);
   const parseBefore = getParser(ext, fileEntryBefore);
   const parseAfter = getParser(ext, fileEntryAfter);
   const ast = createDiff(parseBefore, parseAfter);
+  const render = getRender(format);
   return render(ast);
 };
-
-export default gendiff;
