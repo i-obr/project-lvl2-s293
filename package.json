@@ -1,6 +1,6 @@
 {
   "name": "gen-diff-oi293",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "main": "dist/index.js",
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
